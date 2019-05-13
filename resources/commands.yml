@@ -1,0 +1,11 @@
+# TextReplacer
+#
+# Replace any text with the text of your choice.
+# It's good for Emojis too.
+Replace Text:
+  - Before: ":shrug:"
+    After: "¯\\_(ツ)_/¯"
+  - Before: ":star:"
+    After: "⭐"
+  - Before: "Hello"
+    After: "Bye"
