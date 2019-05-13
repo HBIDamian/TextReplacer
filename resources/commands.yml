@@ -2,7 +2,8 @@
 #
 # Replace any text with the text of your choice.
 # It's good for Emojis too.
-Replace Text:
+
+TextReplacer:
   - Before: ":shrug:"
     After: "¯\\_(ツ)_/¯"
   - Before: ":star:"
