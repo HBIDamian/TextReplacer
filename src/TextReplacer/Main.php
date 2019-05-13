@@ -10,8 +10,8 @@ class Main extends PluginBase implements Listener {
 
     public function onEnable(){
         @mkdir($this->getDataFolder());
-        $this->saveResource("commands.yml");
-        $this->getCommandsConfig = new Config($this->getDataFolder() . "commands.yml", Config::YAML);
+        $this->saveResource("config.yml");
+        $this->getCommandsConfig = new Config($this->getDataFolder() . "config.yml", Config::YAML);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
