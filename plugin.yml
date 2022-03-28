@@ -1,7 +1,7 @@
 name: TextReplacer
-main: TextReplacer\Main
+main: HBIDamian\TextReplacer\Main
 load: STARTUP
 version: 1.0.0
-api: 3.0.0
-author: TheDeibo
+api: 4.0.0
+author: HBIDamian
 description: Replaces text with new custom text. 
