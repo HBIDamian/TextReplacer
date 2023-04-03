@@ -1,8 +1,11 @@
 # TextReplacer
-#
+
+# If you want to replace text case-insensitive, set this to true.
+# This is useful if you don't want to write down every case like "hello", "Hello", "hElLo" and so on.
+case-insensitive: false
+
 # Replace any text with the text of your choice.
 # It's good for Emojis too.
-
 TextReplacer:
   - Before: ":shrug:"
     After: "¯\\_(ツ)_/¯"

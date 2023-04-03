@@ -1,4 +1,5 @@
 <?php
+
 namespace HBIDamian\TextReplacer;
 
 use pocketmine\event\Listener;
@@ -15,15 +16,19 @@ class Main extends PluginBase implements Listener {
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
-    public function onChat(PlayerChatEvent $event): void{
+    public function onChat(PlayerChatEvent $event): void {
         $commandsConfig = $this->getCommandsConfig()->getAll();
-        foreach ($commandsConfig["TextReplacer"] as $var){
-            $message = str_replace($var["Before"], $var["After"], $event->getMessage());
+        foreach ($commandsConfig["TextReplacer"] as $var) {
+            if ($commandsConfig["case-insensitive"] == true) {
+                $message = str_ireplace($var["Before"], $var["After"], $event->getMessage());
+            } else {
+                $message = str_replace($var["Before"], $var["After"], $event->getMessage());
+            }
             $event->setMessage($message);
         }
     }
 
-    public function getCommandsConfig(){
+    public function getCommandsConfig() {
         return $this->getCommandsConfig;
     }
 }
