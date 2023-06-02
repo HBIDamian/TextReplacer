@@ -7,19 +7,24 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\utils\Config;
 use pocketmine\event\player\PlayerChatEvent;
 
-class Main extends PluginBase implements Listener {
+class Main extends PluginBase implements Listener
+{
 
-    public function onEnable(): void {
+    private $commandsConfig;
+
+    public function onEnable(): void
+    {
         @mkdir($this->getDataFolder());
         $this->saveResource("config.yml");
-        $this->getCommandsConfig = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+        $this->commandsConfig = new Config($this->getDataFolder() . "config.yml", Config::YAML);
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
     }
 
-    public function onChat(PlayerChatEvent $event): void {
+    public function onChat(PlayerChatEvent $event): void
+    {
         $commandsConfig = $this->getCommandsConfig()->getAll();
         foreach ($commandsConfig["TextReplacer"] as $var) {
-            if ($commandsConfig["case-insensitive"] == true) {
+            if ($commandsConfig["case-insensitive"] === true) {
                 $message = str_ireplace($var["Before"], $var["After"], $event->getMessage());
             } else {
                 $message = str_replace($var["Before"], $var["After"], $event->getMessage());
@@ -28,7 +33,8 @@ class Main extends PluginBase implements Listener {
         }
     }
 
-    public function getCommandsConfig() {
-        return $this->getCommandsConfig;
+    public function getCommandsConfig()
+    {
+        return $this->commandsConfig;
     }
 }
